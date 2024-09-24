@@ -7,8 +7,13 @@
 </head>
 <body>
     <form action="" method="get">
-        <input type="date" name="date1" required>
-        <input type="date" name="date2" required>
+        <? if (isset($_GET["date1"])) { ?>
+            <input type="date" name="date1" value=<? echo $_GET["date1"] ?> required>
+            <input type="date" name="date2" value=<? echo $_GET["date2"] ?> required>
+        <? } else { ?>
+            <input type="date" name="date1" required>
+            <input type="date" name="date2" required>
+        <? } ?>
         <input type="submit">
     </form>
     <?php
