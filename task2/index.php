@@ -2,67 +2,45 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forms</title>
+    <title>task2</title>
 </head>
 <body>
     <?php
-        if(!empty($_POST["firstname"]) && !empty($_POST["email"]) && !empty($_POST["age"])){
-            $name = $_POST["firstname"];
-            $family = $_POST["email"];
-            $age = $_POST["age"];
-            $today = date("Y-m-d H:i:s"); 
-            echo "<h3>$name $family, $age</h3>";
+    if (isset($_POST["name"])) {
+        $name = trim($_POST["name"]);
+        $email = trim($_POST["email"]);
+        $text = trim($_POST["text"]);
+        $date = date("d-m-Y H:i:s");
 
-            $f = fopen("data.txt","a");
-            $string = "Имя отправителя: " . $name . " Почта отправителя: " . $family . " Сообщение отправителя: " . $age . " Дата и время отправки: " . $today . "\n";
-            fwrite($f,$string);
+    $file = fopen("data.txt", "a");
+        fwrite($file, "Имя: " .  $name . " Email: " . $email . " Дата отправки: " . $date . " Сообщение: " . $text . "---");
+    fclose($file);
+    }
 
-            fclose($f);
-            
-        }else{
-            echo "Форма не заполнена";
+    if (file_exists("data.txt")) {
+        $fileStrings = file_get_contents("data.txt");
+        $fileArray = explode("---", $fileStrings);
+        $fileArrays = [];
+
+        for ($i = 0; $i < sizeof($fileArray); $i++) { 
+            array_push($fileArrays, explode("\n", $fileArray[$i]));
         }
-
-    ?>
-
-    <form action="" method="post">
-        <input type="text" name="firstname" placeholder="Введите имя"><br>
-        <input type="email" name="email" placeholder="Введите почту"><br>
-        <textarea name="age" cols="40" rows="5" placeholder="Введите текст"></textarea><br> 
-        
-        <?php
-            
-        ?>
-
-        </select>
-
-        <input type="submit" value="Отправить">
-    </form>
-    <table border=1>
-
-    
-    <?php
-        $f = fopen("data.txt","r");
-        $data="";
-        while(!feof($f)){
-            $data = fread($f,1024);
-        }
-
-        fclose($f);
-
-        $data = str_replace("\n","<br>",$data);
-
-        
-        $file_array = file("data.txt");
-        
-        $array_count = count($file_array);
-
-        for($i = 0; $i < $array_count; $i++) {
-            echo "<tr><td>". $file_array[$i]."<br></tr></td>";
-        }
-    ?>
-    </table>
+    }
+?>
+    <div>
+        <form action method="post">
+            <input type="text" name="name" placeholder="Имя">
+            <input type="email" name="email" placeholder="Email">
+            <textarea name="text"placeholder="Cообщение"></textarea>
+            <input type="submit">
+        </form>
+            <? if (isset($fileArrays)) { ?>
+                <? for ($i = sizeof($fileArrays) - 2; $i >= 0; $i--) { ?>
+                        <? for ($j = 0; $j < sizeof($fileArrays[$i]); $j++) { ?>
+                            <p><? echo $fileArrays[$i][$j] ?></p>
+                        <? } ?>
+            <? }} ?>
+    </div>
 </body>
 </html>
