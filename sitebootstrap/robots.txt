@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /images
+
+Allow: /components
+
+Sitemap: http://localhost/sitemap.xml
