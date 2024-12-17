@@ -47,7 +47,7 @@
       
     </div>
     <div class="w-50 mt-5 d-flex justify-content-center">
-      <img class="p-5" src="img/glaww.png" alt="Главная картинка">
+      <img class="p-5 img-fluid" src="img/glaww.png" alt="Главная картинка">
     </div>
     
   </main>
