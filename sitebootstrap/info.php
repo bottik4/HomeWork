@@ -40,13 +40,13 @@
   </header>
   <main class="p-5">
     <h1>Наши проекты</h1>
-    <div">
+    <div>
       <div class="p-3">
-        <img src="img/project1.jpeg" alt="Проект 1">
+        <img class="img-fluid" src="img/project1.jpeg" alt="Проект 1">
         <p class="fs-2 p-2">Дизайн упаковки молочной продукции</p>
       </div>
       <div class="p-3">
-        <img src="img/project2.jpeg" alt="Проект 2">
+        <img class="img-fluid" src="img/project2.jpeg" alt="Проект 2">
         <p class="fs-2 p-2">Айдентика для разработчика игр Vizor</p>
       </div>
     </div>
