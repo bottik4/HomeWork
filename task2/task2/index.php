@@ -27,7 +27,7 @@
             array_push($fileArrays, explode("\n", $fileArray[$i]));
         }
     }
-?>
+    ?>
     <div>
         <form action method="post">
             <input type="text" name="name" placeholder="Имя">
