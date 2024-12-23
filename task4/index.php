@@ -48,20 +48,20 @@ $conn = new mysqli($server, $dbusername, $dbpassword, $dbname);
         } 
     }
     ?>
-        <? for ($i = 0; $i < sizeof($student); $i++) { ?>
-                <? if (isset($_GET["edit"]) && $_GET["edit"] == $student[$i]["id"]) { ?>
+        <?php for ($i = 0; $i < sizeof($student); $i++) { ?>
+                <?php if (isset($_GET["edit"]) && $_GET["edit"] == $student[$i]["id"]) { ?>
                     <form action method="post">
-                        <input type="text" name="id" value="<? echo $student[$i]["id"] ?>" hidden>
-                        <input type="text" name="fullNameEdit" value="<? echo $student[$i]["value"] ?>">
-                        <input type="datetime-local" name="date" value="<? echo $student[$i]["action_date"] ?>">
+                        <input type="text" name="id" value="<?php echo $student[$i]["id"] ?>" hidden>
+                        <input type="text" name="fullNameEdit" value="<?php echo $student[$i]["value"] ?>">
+                        <input type="datetime-local" name="date" value="<?php echo $student[$i]["action_date"] ?>">
                         <input type="submit" value="Сохранить"></td>
                     </form>
-                <? } else { ?>
-                    <? echo $student[$i]["value"] ?>
-                    <? echo $student[$i]["action_date"] ?>
-                    <a href="?edit=<? echo $student[$i]["id"] ?>">Редактировать</a><br>
-                <? } ?>
-        <? } ?>
+                <?php } else { ?>
+                    <?php echo $student[$i]["value"] ?>
+                    <?php echo $student[$i]["action_date"] ?>
+                    <a href="?edit=<?php echo $student[$i]["id"] ?>">Редактировать</a><br>
+                <?php } ?>
+        <?php } ?>
 
 </body>
 </html>
