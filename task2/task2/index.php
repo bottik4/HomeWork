@@ -35,12 +35,12 @@
             <textarea name="text"placeholder="Cообщение"></textarea>
             <input type="submit">
         </form>
-            <? if (isset($fileArrays)) { ?>
-                <? for ($i = sizeof($fileArrays) - 2; $i >= 0; $i--) { ?>
-                        <? for ($j = 0; $j < sizeof($fileArrays[$i]); $j++) { ?>
-                            <p><? echo $fileArrays[$i][$j] ?></p>
-                        <? } ?>
-            <? }} ?>
+            <?php if (isset($fileArrays)) { ?>
+                <?php for ($i = sizeof($fileArrays) - 2; $i >= 0; $i--) { ?>
+                        <?php for ($j = 0; $j < sizeof($fileArrays[$i]); $j++) { ?>
+                            <p><?php echo $fileArrays[$i][$j] ?></p>
+                        <?php } ?>
+            <?php }} ?>
     </div>
 </body>
 </html>
