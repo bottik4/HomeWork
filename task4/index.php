@@ -59,7 +59,7 @@ $conn = new mysqli($server, $dbusername, $dbpassword, $dbname);
                 <? } else { ?>
                     <? echo $student[$i]["value"] ?>
                     <? echo $student[$i]["action_date"] ?>
-                    <a href="?edit=<? echo $student[$i]["id"] ?>">Редактировать</a>
+                    <a href="?edit=<? echo $student[$i]["id"] ?>">Редактировать</a><br>
                 <? } ?>
         <? } ?>
 
